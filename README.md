@@ -3,7 +3,11 @@ This is a repository to store some useful image preprocessing codes (with opencv
 
 ## 数据准备
 将所需要处理的JSON数据格式txt文件存放于根目录下，例如abcd.txt.
-待处理数据格式为: img_url  [{"tag":"","property":[],"pos":["x1","y1","x2","y2"]}]
+待处理数据格式为: 
+
+```shell
+img_url  [{"tag":"","property":[],"pos":["x1","y1","x2","y2"]}]
+```
 
 ## 运行程序
 执行main.py文件, 参数包括:
