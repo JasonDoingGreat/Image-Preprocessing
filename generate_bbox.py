@@ -1,7 +1,7 @@
 # coding=utf-8
-'''
+"""
 该文件用于对train 文件生成train.mat用于训练，使用selective_search方法
-'''
+"""
 import sys
 sys.path.append('/usr/local/lib/python2.7/dist-packages')
 import os
@@ -12,6 +12,7 @@ from skimage import io
 import time
 import imghdr
 from subprocess import call
+
 
 def run_dlib_selective_search(image_name):
     img = io.imread(image_name)
@@ -34,7 +35,6 @@ def perform(anno_train_file, train_mat_file, new_anno_train_file):
     if os.path.isfile('proposal_file.txt'):
         # 从上一次中断处恢复
         all_proposals = open('proposal_file.txt').readlines()
-        call(['rm','-r','proposal_file.txt'])
         length = len(all_proposals)
 
     # 打开annotation文件和new_annotation文件
@@ -61,6 +61,7 @@ def perform(anno_train_file, train_mat_file, new_anno_train_file):
 
             # 开始提取proposals
             single_proposal = run_dlib_selective_search(image_file_name)
+            print type(single_proposal[0])
             all_proposals.append(single_proposal)
             count = count+1
             end_time=time.time()

@@ -11,8 +11,8 @@ RESULT_FILE_NAME = '_result.txt'
 # 获取文件行数
 def get_file_lines(file_name):
     if os.path.exists(file_name):
-        # print file_name
-        return open(file_name).readlines()
+        with open(file_name) as f:
+            return f.readlines()
     else:
         assert "File does not exist!"
 
